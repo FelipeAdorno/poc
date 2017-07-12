@@ -27,7 +27,7 @@ public class BuyerRestService {
 
     @GetMapping
     private PagedResources<?> list() {
-        return pagedResourcesAssembler.toResource(buyerRepository
+        return pagedResourcesAssembler.toResource(Buyer.class, buyerRepository
                 .findAll(new PageRequest(0, 10)), buyerResourceAssemblerSupport);
     }
 }
