@@ -8,19 +8,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class BuyerResourceAssemblerSupport extends ResourceAssemblerSupport<Buyer, Resource> {
 
-    public BuyerResourceAssemblerSupport() {
+    BuyerResourceAssemblerSupport() {
         super(BuyerRestService.class, Resource.class);
     }
 
     @Override
     public Resource toResource(Buyer entity) {
-        //add links e etc
         return createResourceWithId(entity.getId(), entity);
     }
 
     @Override
     protected Resource<Buyer> instantiateResource(Buyer entity) {
-        //instancia o resource
         return new Resource<>(entity);
     }
 }

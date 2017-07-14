@@ -11,19 +11,19 @@ data class Buyer(
 
         @Id
         @GeneratedValue
-        val id: Long? = null,
+        var id: Long? = null,
 
         @NotEmpty
-        val shortName: String? = "",
+        var shortName: String? = "",
 
         @NotEmpty
-        val admName: String? = "",
+        var admName: String? = "",
 
         @NotEmpty
-        val admGovernmentId: String? = "",
+        var admGovernmentId: String? = "",
 
         @NotEmpty
-        val companyName: String? = ""
+        var companyName: String? = ""
 
 ) : AbstractEntity()
 

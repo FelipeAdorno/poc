@@ -1,8 +1,8 @@
-package br.com.monkey.ecx.core;
+package br.com.monkey.ecx.core.auditing;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -11,14 +11,15 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@ToString
+@Getter
+@Setter
 @MappedSuperclass
-@EqualsAndHashCode
-@EntityListeners({AuditingEntityListener.class})
-public class AbstractEntity {
+@EntityListeners({AuditingEntityListener.class, UserIpEntityListener.class})
+public class AbstractEntity implements Auditable, Serializable {
 
     @CreatedDate
     private Date createdAt;
@@ -26,7 +27,7 @@ public class AbstractEntity {
     @CreatedBy
     private String createUserId;
 
-//    @CreatedIp
+    @CreatedIp
     private String createUserIp;
 
     @LastModifiedDate
@@ -35,6 +36,6 @@ public class AbstractEntity {
     @LastModifiedBy
     private String lastUserId;
 
-//    @LastModifiedIp
+    @LastModifiedIp
     private String lastUserIp;
 }

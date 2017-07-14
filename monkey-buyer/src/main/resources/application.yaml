@@ -1,0 +1,31 @@
+server:
+  port: 8087
+
+#AUTH SERVER CONFIGURATION
+security:
+  user:
+    password: none
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      clientId: monkey-buyer
+      clientSecret: 5aa67a07-c607-4280-82d3-562238c78a61
+      accessTokenUri: url
+      grant-type: client_credentials
+      scope: server
+    resource:
+      user-info-uri: url
+
+#AWS CONFIGURATION
+cloud:
+  aws:
+    stack:
+      auto: false
+    sns:
+      companyCreatedEventProducer: test-local-company-created
+    region:
+      static: us-east-1
+    credentials:
+      accessKey: ak
+      secretKey: sk

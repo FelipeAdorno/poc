@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: monkey-buyer
+
+---
+spring:
+  profiles: amazon-dev
+  cloud:
+    config:
+      uri: http://dev-config-server.monkeyecx.com
+
+---
+spring:
+  profiles: amazon-hmg
+  cloud:
+    config:
+      uri: http://hmg-config-server.monkeyecx.com
+
+---
+spring:
+  profiles: amazon-prd
+  cloud:
+    config:
+      uri: http://config-server.monkey.exchange
